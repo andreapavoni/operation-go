@@ -1,3 +1,4 @@
+// START OMIT
 /***********************
  * Mission: All Aboard *
  ***********************
@@ -23,9 +24,11 @@ func main() {
   agents = append(agents, Agent{name: "Jane Johnson", equipment: "full"})
   agents = append(agents, Agent{name: "Max Carter", equipment: "full"})
   agents = append(agents, Agent{name: "Kay White", equipment: "full"})
+// EDITABLE OMIT
 
+  // Your code
 
-
+// UNEDITABLE OMIT
   printGearTable(agents, total_agents)
 }
 
@@ -45,3 +48,4 @@ type Agent struct {
   name string
   equipment string
 }
+// END OMIT

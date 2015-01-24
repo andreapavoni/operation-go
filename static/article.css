@@ -2,6 +2,10 @@
 * Global
 */
 
+*:focus {
+  outline: 0;
+}
+
 html {
   height: 100%;
   width: 100%;
@@ -33,7 +37,7 @@ body.fadebg {
 }
 
 .container {
-  padding: 60px 30px 51px 30px;
+  padding: 60px 30px 56px 30px;
 }
 
 #content {
@@ -82,7 +86,7 @@ a {
 }
 
 #navbar h2 {
-  font-size: 15px;
+  font-size: 19px;
   font-family: "Special Elite";
   display: inline-block;
   padding: 2px 20px;
@@ -247,15 +251,10 @@ a.profile span.bio {
   position: relative;
   top: 30px;
   transition: all ease 1.5s;
-  padding: 90px 140px 60px 80px;
+  padding: 90px 140px 60px 70px;
 }
 #laptop.movehigher {
   top: 0;
-}
-#editor {
-  max-height: 427px;
-  overflow-y: scroll;
-  width: 740px;
 }
 body.level1 {
   background: url('/static/images/plane-small.jpg') no-repeat bottom center;
@@ -267,12 +266,71 @@ body.level1 {
   font-size: 14px;
   transition: all ease 1.5s;
   position: relative;
-  top: 30px;
+  top: 40px;
   left: 20px;
   opacity: 0;
 }
 .intro.movehigher {
-  top: 0;
+  top: 10px;
   left: 0;
   opacity: 1;
+}
+
+/* Editor */
+#editor {
+  max-height: 432px;
+  overflow-y: scroll;
+  width: 757px;
+}
+#editor .buttons {
+  position: absolute;
+  top: 100px;
+  right: 150px;
+}
+#editor .code pre {
+  font-family: "Inconsolata";
+  font-size: 16px;
+}
+button.run {
+  background: #395;
+  color: #fff;
+  border: 0;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 8px 16px;
+  font-size: 12px;
+  transition: all ease 0.5s;
+  border-bottom: 3px solid #3b3131;
+  outline: 0;
+}
+button.run:hover {
+  cursor: pointer;
+  background: #5b6;
+  border-bottom: 3px solid #284;
+}
+.code {
+  padding: 4px 10px;
+  width: 722px;
+  background: #3b3131;
+  color: #ddd;
+}
+.code.frozen {
+
+}
+.code.playground {
+  background: #000;
+  color: #fff;
+}
+
+/* Output */
+.output .buttons {
+  display: none;
+}
+
+.output pre {
+  white-space: pre-wrap;       /* CSS 3 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }

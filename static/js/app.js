@@ -130,6 +130,19 @@ function loadLevel(level_name) {
       } else {
         $('iframe#game').contents().find('section#dee').remove()
       }
+
+      // Listen for the run click
+      run = $('iframe#game').contents().find('#editor button.run');
+      run.click(function(event) {
+        // Keep the run button
+        run.attr('style','');
+        // Move the console output
+        output = $('iframe#game').contents().find('div.output')
+        intro.html('');
+        intro.append(output);
+      });
+
+      // Render the animations
       setTimeout(function() {
         replaceName();
         laptop.removeClass('hide');
