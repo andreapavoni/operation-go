@@ -136,6 +136,7 @@ function loadLevel(level_name) {
         intro.removeClass('hide');
         setTimeout(function() {
           laptop.addClass('movehigher');
+          intro.addClass('movehigher');
         }, 100);
       }, 1000);
     });

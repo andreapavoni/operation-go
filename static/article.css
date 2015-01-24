@@ -265,4 +265,14 @@ body.level1 {
   height: 380px;
   margin-top: 30px;
   font-size: 14px;
+  transition: all ease 1.5s;
+  position: relative;
+  top: 30px;
+  left: 20px;
+  opacity: 0;
+}
+.intro.movehigher {
+  top: 0;
+  left: 0;
+  opacity: 1;
 }
