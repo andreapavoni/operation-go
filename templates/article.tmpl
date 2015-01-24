@@ -3,20 +3,23 @@
 <html>
 <head>
   <title>{{.Title}}</title>
-  <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Special+Elite' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Raleway:200,400,700|Special+Elite' rel='stylesheet' type='text/css'>
   <link type="text/css" rel="stylesheet" href="/static/article.css">
   <meta charset='utf-8'>
+  <script src='/play.js'></script>
 </head>
 
-<body>
-  <div id="page" class="wide">
+<body class="fadebg">
+  <section id="navbar" class="hide">
+    <h2>Operation Go: A Routine Mission</h2>
+  </section>
+  <div id="page">
     <div class="container">
       {{range .Sections}}
         {{elem $.Template .}}
-      {{end}}{{/* of Section block */}}
+      {{end}}
     </div>
   </div>
-  <script src='/play.js'></script>
 </body>
 </html>
 {{end}}
