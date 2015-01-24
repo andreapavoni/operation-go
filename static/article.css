@@ -8,13 +8,12 @@ html {
 }
 
 body {
-  background: url('/static/images/jump-small-blue.jpg') no-repeat bottom center;
   height: 100%;
   width: 100%;
   margin: 0;
   font-family: "Raleway";
   color: #fff;
-  transition: all ease 3s;
+  transition: all ease 1.5s;
   opacity: 1;
 }
 
@@ -23,22 +22,23 @@ body.fadebg {
   background: url('http://dummyimage.com/1500x997/000/000.jpg') no-repeat bottom center;
 }
 
-#bg {
-  background: url('/static/images/jump-small-blue.jpg') no-repeat bottom center;
-  height: 100%;
-  width: 100%;
-  margin: 0;
-}
-
 #page {
   height: 100%;
   width: 100%;
   background: url('/static/images/bg-reveal.png') no-repeat top center;
-  position: absolute;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 
 .container {
-  padding: 60px 30px 60px 30px;
+  padding: 60px 30px 51px 30px;
+}
+
+#content {
+  width: 1300px;
+  display: flex;
+  justify-content: center;
 }
 
 .button {
@@ -79,7 +79,8 @@ a {
 }
 
 #navbar h2 {
-  font-size: 12px;
+  font-size: 15px;
+  font-family: "Special Elite";
 }
 
 
@@ -88,6 +89,11 @@ a {
 */
 
 /* Opening */
+
+body.opening {
+  background: url('/static/images/jump-small-blue.jpg') no-repeat bottom center;
+}
+
 h1.title {
   font-size: 42px;
   font-family: "Special Elite";
@@ -202,4 +208,30 @@ a.profile span.bio {
   display: inline-block;
   padding: 5px 20px;
   background: url('/static/images/profile-mask-light.png') no-repeat;
+}
+
+/* Levels */
+#laptop {
+  height: 480px;
+  width: 740px;
+  background: url('/static/images/laptop-small.png') no-repeat;
+  position: relative;
+  top: 30px;
+  transition: all ease 1.5s;
+  padding: 90px 140px 60px 80px;
+}
+#laptop.movehigher {
+  top: 0;
+}
+#editor {
+  height: 427px;
+  width: 740px;
+}
+body.level1 {
+  background: url('/static/images/plane-small.jpg') no-repeat bottom center;
+}
+.intro {
+  width: 330px;
+  height: 380px;
+  margin-top: 30px;
 }

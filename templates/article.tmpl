@@ -6,20 +6,26 @@
   <link href='http://fonts.googleapis.com/css?family=Raleway:200,400,700|Special+Elite' rel='stylesheet' type='text/css'>
   <link type="text/css" rel="stylesheet" href="/static/article.css">
   <meta charset='utf-8'>
-  <script src='/play.js'></script>
 </head>
 
 <body class="fadebg">
   <section id="navbar" class="hide">
-    <h2>Operation Go: A Routine Mission</h2>
+    <h2>Operation Go</h2>
   </section>
   <div id="page">
     <div class="container">
-      {{range .Sections}}
-        {{elem $.Template .}}
-      {{end}}
+      <div id="content">
+        <section id="laptop">
+          <div id="editor">
+            {{range .Sections}}
+              {{elem $.Template .}}
+            {{end}}
+          </div>
+        </section>
+      </div>
     </div>
   </div>
+  <script src='/play.js'></script>
 </body>
 </html>
 {{end}}
