@@ -224,7 +224,8 @@ a.profile span.bio {
   top: 0;
 }
 #editor {
-  height: 427px;
+  max-height: 427px;
+  overflow-y: scroll;
   width: 740px;
 }
 body.level1 {
@@ -234,4 +235,5 @@ body.level1 {
   width: 330px;
   height: 380px;
   margin-top: 30px;
+  font-size: 14px;
 }
