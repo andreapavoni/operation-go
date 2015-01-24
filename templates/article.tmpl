@@ -1,0 +1,22 @@
+{{define "root"}}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{.Title}}</title>
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Special+Elite' rel='stylesheet' type='text/css'>
+  <link type="text/css" rel="stylesheet" href="/static/article.css">
+  <meta charset='utf-8'>
+</head>
+
+<body>
+  <div id="page" class="wide">
+    <div class="container">
+      {{range .Sections}}
+        {{elem $.Template .}}
+      {{end}}{{/* of Section block */}}
+    </div>
+  </div>
+  <script src='/play.js'></script>
+</body>
+</html>
+{{end}}
