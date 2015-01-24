@@ -9,13 +9,13 @@ var level = "";
 
 $(document).ready(function() {
   // If the user hasn't started playing
-  $('#game').load(function(){
+  $('iframe#game').load(function(){
     if (level == "") {
       // Look for a cookie once the iframe loads
       findUser();
-      var iframe = $('#game').contents();
+      var iframe = $('iframe#game').contents();
       // capture the github login click
-      iframe.find('#github').click(function(){
+      iframe.find('a#github').click(function(){
         githubLogin();
       });
       // capture the character selection click
@@ -34,7 +34,7 @@ function findUser() {
   if(alias != "") {
 
     // Hide the login
-    $('#game').contents().find('section#oauth').addClass('hide');
+    $('iframe#game').contents().find('section#oauth').addClass('hide');
 
     // If this user has started playing, load their level
     if (level != "") {
@@ -47,8 +47,8 @@ function findUser() {
     }
   } else {
     // If this is a new user, fade to the opening scene
-    $('#game').contents().find('body').addClass('opening');
-    $('#game').contents().find('body').removeClass('fadebg');
+    $('iframe#game').contents().find('body').addClass('opening');
+    $('iframe#game').contents().find('body').removeClass('fadebg');
   }
 }
 
@@ -102,37 +102,36 @@ function githubLogin() {
 // load the specified level
 function loadLevel(level_name) {
   // Fade out the current scene
-  $('#game').contents().find("body").addClass("fadebg");
+  $('iframe#game').contents().find("body").addClass("fadebg");
   // Wait for BG fade to complete
   setTimeout(function() {
     // Switch the scene
-    $('#game').attr("src", "/levels/" + level_name + ".article");
+    $('iframe#game').attr("src", "/levels/" + level_name + "/level.article");
     // Fade in the new scene
-    $('#game').load(function() {
+    $('iframe#game').load(function() {
       // Update the body bg
-      body = $('#game').contents().find('body');
+      body = $('iframe#game').contents().find('body');
       body.addClass('level' + level_name);
       body.removeClass('fadebg');
 
       // Hide the title and update the nav bar
-      level_heading = $('#game').contents().find('h1.title');
+      level_heading = $('iframe#game').contents().find('h1.title');
       level_title = level_heading.text();
       level_heading.remove()
-      navbar_title = $('#game').contents().find('#navbar h2');
-      navbar_title.text(navbar_title.text() + ": " + level_title);
-      $('#game').contents().find('#navbar').removeClass('hide');
-      laptop = $('#game').contents().find('#laptop');
+      setupNavBar();
+      laptop = $('iframe#game').contents().find('section#laptop');
       laptop.addClass('hide');
 
       // Show the intro script
-      intro = $('#game').contents().find('#' + character);
-      intro.insertAfter($('#game').contents().find('#laptop'));
+      intro = $('iframe#game').contents().find('#' + character);
+      intro.insertAfter($('iframe#game').contents().find('section#laptop'));
       if(character == 'dee') {
-        $('#game').contents().find('#jason').remove()
+        $('iframe#game').contents().find('section#jason').remove()
       } else {
-        $('#game').contents().find('#dee').remove()
+        $('iframe#game').contents().find('section#dee').remove()
       }
       setTimeout(function() {
+        replaceName();
         laptop.removeClass('hide');
         intro.removeClass('hide');
         setTimeout(function() {
@@ -141,6 +140,18 @@ function loadLevel(level_name) {
       }, 1000);
     });
   }, 500);
+}
+
+function setupNavBar() {
+  navbar_title = $('iframe#game').contents().find('section#navbar h2');
+  navbar_title.text(navbar_title.text() + ": " + level_title);
+  player = $('iframe#game').contents().find('a#player');
+  player_html = '<span class="alias">' + alias + '</span>';
+  if (avatar != "" && avatar != "undefined") {
+    player_html = '<span class="avatar"><img src="' + avatar + '" height="20" width="20" /></span>' + player_html;
+  }
+  player.html(player_html);
+  $('iframe#game').contents().find('section#navbar').removeClass('hide');
 }
 
 // move to the next level
@@ -155,20 +166,20 @@ function nextLevel(step) {
 function createCharacter(selected) {
   character = $(selected).attr('id');
   document.cookie = document.cookie + "|" + character + "|1";
-  $('#game').contents().find('#profiles').fadeOut(300, function() {
+  $('iframe#game').contents().find('#profiles').fadeOut(300, function() {
     loadLevel(1);
   })
 }
 
 // show the opening scene
 function opening_scene() {
-  $('#game').contents().find('body').addClass('opening');
-  $('#game').contents().find('body').removeClass('fadebg');
-  $('#game').contents().find('section#oauth').fadeOut( 1000, function() {
-    $('#game').contents().find('h1.title').fadeOut( 1000, function() {
-      $('#game').contents().find('#navbar').slideDown( 300, function() {
+  $('iframe#game').contents().find('body').addClass('opening');
+  $('iframe#game').contents().find('body').removeClass('fadebg');
+  $('iframe#game').contents().find('section#oauth').fadeOut( 1000, function() {
+    $('iframe#game').contents().find('h1.title').fadeOut( 1000, function() {
+      $('iframe#game').contents().find('section#navbar').slideDown( 300, function() {
         if(character == "") {
-          $('#game').contents().find('#profiles').fadeIn(300, function() {
+          $('iframe#game').contents().find('section#profiles').fadeIn(300, function() {
           })
         } else {
           loadLevel(1);
@@ -176,4 +187,14 @@ function opening_scene() {
       });
     });
   });
+}
+
+// replaces the character name in any source code
+function replaceName() {
+  if(character == 'dee') {
+    editor = $('iframe#game').contents().find('div#editor')
+    editor.html(function(index,html){
+      return html.replace("Jason Marshall","Dee Furcloze");
+    });
+  }
 }

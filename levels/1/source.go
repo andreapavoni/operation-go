@@ -1,10 +1,10 @@
-/**********************************************
- * Mission: All Aboard
- ***********************************************
+/***********************
+ * Mission: All Aboard *
+ ***********************
  *
- * Logging into the agency network, you're quickly into the operation manifest source code.
- * It looks like a typical agency snafu.
- * You're going to need full combat gear for this mission.
+ * Logging into the agency network, you're quickly into the operation manifest code.
+ * Sure enough, you're listed with no equipment, a typical agency snafu.
+ * You're going to need full tactical gear for this mission.
  * Let's go ahead and fix that.
  *
  */
@@ -29,9 +29,9 @@ func main() {
   printGearTable(agents, total_agents)
 }
 
-func printGearTable(agents []Agent, max_agents int) {
-  if len(agents) > max_agents {
-    fmt.Println("Error: too many soldiers")
+func printGearTable(agents []Agent, total_agents int) {
+  if len(agents) != total_agents {
+    fmt.Println("ERROR: We can only go with", total_agents, "agents.")
     return
   }
   fmt.Println("Operation Go: Agent Manifest")

@@ -10,6 +10,7 @@ html {
 body {
   height: 100%;
   width: 100%;
+  min-height: 680px;
   margin: 0;
   font-family: "Raleway";
   color: #fff;
@@ -74,15 +75,43 @@ a {
 #navbar {
   width: 100%;
   background: #000;
-  padding: 5px 15px;
-  opacity: 0.9;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  z-index: 100;
 }
 
 #navbar h2 {
   font-size: 15px;
   font-family: "Special Elite";
+  display: inline-block;
+  padding: 2px 20px;
 }
 
+#player {
+  display: block;
+  background: #272727;
+  display: flex;
+  align-items: center;
+  padding: 2px 20px;
+  color: #fff;
+  z-index: 100;
+  transition: all ease 0.2s;
+}
+
+#player:hover {
+  background: #3af;
+}
+
+#player span.avatar {
+  margin-right: 10px;
+}
+
+#player span.alias {
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
 
 /*
 * Screens
