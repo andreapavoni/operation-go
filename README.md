@@ -21,5 +21,4 @@ Operation Go tells the story of a young covert operative on his/her first missio
 1. Andy Brewer (Full-stack developer)
 
 # Credits
-* [Link 1] (http://)
-* [Link 2] (http://)
+* Soundtrack: Winter Rain by [hunkE] (https://soundcloud.com/hunke/winter-rain-instrumental)

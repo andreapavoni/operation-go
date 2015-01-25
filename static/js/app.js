@@ -7,7 +7,15 @@ var email = "";
 var persona = "";
 var level = 0;
 
+//var tune;
+
 $(document).ready(function() {
+  tune = document.getElementById('music');
+  tune.volume = 0.2;
+
+  //toggleMusic();
+
+  //document.getElementById('music').volume = 0;
 
   // If the user hasn't started playing
   $('iframe#game').load(function(){
@@ -40,6 +48,12 @@ $(document).ready(function() {
 function findUser() {
   loadCookieData();
 
+  tune = document.getElementById('music');
+  //
+  // MUSIC: turn music off for testing
+  //
+  //tune.play();
+
   // Found a user
   if(alias != "") {
     // Hide the login
@@ -47,12 +61,15 @@ function findUser() {
 
     // If this user has started playing, load their level
     if (level != "") {
+      tune.volume = 0.2;
       loadLevel(level);
     } else {
+      tune.volume = 0.4;
       // If they haven't started playing, start the intro animation
       openingScene();
     }
   } else {
+    tune.volume = 0.4;
     // If this is a new user, fade to the opening scene
     oauth = $('iframe#game').contents().find('section#oauth');
     oauth.insertAfter($('iframe#game').contents().find('div#content'));
@@ -117,6 +134,9 @@ function githubLogin() {
 
 // load the specified level
 function loadLevel(level_name) {
+
+  tune = document.getElementById('music');
+  tune.volume = 0.2;
 
   // Fade out the current scene
   $('iframe#game').contents().find("body").addClass("fadebg");
@@ -373,4 +393,21 @@ function restartGame() {
 
 function deleteCookie() {
   document.cookie = document.cookie + "; expires=Thu, 01 Jan 1970 00:00:01 GMT;path='/'";
+}
+
+function toggleMusic() {
+  if (tune.mp3) {
+    if(tune.mp3.paused) {
+      tune.volume = 0;
+      tune.mp3.play();
+    }
+    else {
+      tune.mp3.pause();
+    }
+  } else {
+    tune.mp3 = new Audio('/static/audio/chill-loop.mp3');
+    tune.volume = 0;
+    tune.mp3.play();
+    tune.volume = 0;
+  }
 }
