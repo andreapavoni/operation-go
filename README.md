@@ -2,20 +2,26 @@
 
 Play online at: [go.stackcasts.com] (https://go.stackcasts.com)
 
-or, clone the repo, then from the project directory:
+or, clone the repo, then from the project directory run:
 `present -base=.`
+and open your browser to: `http://127.0.0.1:3999/`
+
+Enjoy :)
 
 ## Project Overview
 **About the App:**
 
 Operation Go tells the story of a young covert operative on their first mission into the field.  The operative encounters multiple obstacles along the way that must be solved using Golang.
 
-**Audience:** Go developers
+The entire app is rendered using Go's `present` tool.
 
-**Why They'll Use It:**
+**Who's It For?:** Go developers of all experience levels
+
+**Why Should They Play?:**
 
 1. To test their Go skills and solve programming puzzles
 2. It's a fun, interactive way to experience Go through the context of a story
+3. Compete with other Go developers to find the most creative solutions
 
 **Why I'm Building It:**
 

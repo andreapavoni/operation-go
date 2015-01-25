@@ -78,9 +78,9 @@ function findUser() {
     title.insertAfter($('iframe#game').contents().find('div#content'));
     $('iframe#game').contents().find('h1.title').first().addClass('big');
 
-    //$('iframe#game').contents().find('body').addClass('slidedown');
-    $('iframe#game').contents().find('body').addClass('opening');
-    $('iframe#game').contents().find('body').removeClass('fadebg');
+    body = $('iframe#game').contents().find('body');
+    body.removeClass();
+    body.addClass('opening');
   }
 }
 
@@ -139,7 +139,9 @@ function loadLevel(level_name) {
   tune.volume = 0.2;
 
   // Fade out the current scene
-  $('iframe#game').contents().find("body").addClass("fadebg");
+  body = $('iframe#game').contents().find('body');
+  body.removeClass();
+  body.addClass('fadebg');
   // Wait for BG fade to complete
   setTimeout(function() {
     // Switch the scene
@@ -201,8 +203,10 @@ function loadLevel(level_name) {
 
       // ensure the right persona names are in the code
       replaceName();
-      $('iframe#game').contents().find("body").removeClass();
+      body.removeClass();
       body.addClass('level' + level_name);
+      //body.css('background-position','top center');
+      //body.css('background-position','center center');
 
       // Render the animations
       setTimeout(function() {
@@ -270,8 +274,9 @@ function openingScene() {
     body.addClass('from-intro');
   } else {
     // we are logged in but haven't chosen a persona yet
+    body.removeClass();
     body.addClass('opening');
-    body.removeClass('fadebg');
+    //body.removeClass('fadebg');
   }
   setTimeout(function() {
     if(persona == "") {
@@ -425,8 +430,9 @@ function restartGame() {
   document.cookie="user=" + alias + "|" + avatar + "|" + email + ";path='/'";
 
   // Fade out the current scene
-  $('iframe#game').contents().find("body").removeClass();
-  $('iframe#game').contents().find("body").addClass("fadebg");
+  body = $('iframe#game').contents().find('body');
+  body.removeClass();
+  body.addClass("fadebg");
 
   // Clear the global variables
   level = 0;

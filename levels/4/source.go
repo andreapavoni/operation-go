@@ -1,7 +1,7 @@
 // START OMIT
-/***********************
- * Mission: Where Am I *
- ***********************
+/***************************
+ * Mission: Being Recorded *
+ ***************************
  *
  *
  *
@@ -19,8 +19,8 @@ func main() {
 
   // Your code
 
-  fmt.Println("todo")
 
 // UNEDITABLE OMIT
-}
+
+
 // END OMIT
