@@ -6,6 +6,9 @@
   <link href='http://fonts.googleapis.com/css?family=Inconsolata|Raleway:200,400,500,700|Special+Elite' rel='stylesheet' type='text/css'>
   <link type="text/css" rel="stylesheet" href="/static/article.css">
   <meta charset='utf-8'>
+  <link rel="stylesheet" href="/static/hjs-themes/obsidian.css">
+  <script src="/static/js/highlight.go.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
 </head>
 
 <body class="fadebg">
@@ -34,6 +37,13 @@
     </div>
   </div>
   <script src='/play.js'></script>
+  <script>
+    $(document).ready(function() {
+      $('div.code.frozen').each(function(i, block) {
+        hljs.highlightBlock(block);
+      });
+    });
+  </script>
 </body>
 </html>
 {{end}}

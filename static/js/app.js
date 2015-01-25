@@ -201,7 +201,7 @@ function loadLevel(level_name) {
 
       // ensure the right persona names are in the code
       replaceName();
-
+      $('iframe#game').contents().find("body").removeClass();
       body.addClass('level' + level_name);
 
       // Render the animations
@@ -236,6 +236,7 @@ function setupNavBar() {
 
 // move to the next level
 function nextLevel(step) {
+  $('iframe#game').contents().find("body").removeClass();
   level = parseInt(step) + 1;
   cookie_data = document.cookie;
   deleteCookie();
@@ -378,12 +379,15 @@ function restartGame() {
   data = "user=" + alias + "|" + avatar + "|" + email;
   deleteCookie();
   document.cookie="user=" + alias + "|" + avatar + "|" + email + ";path='/'";
+
+  // Fade out the current scene
+  $('iframe#game').contents().find("body").removeClass();
+  $('iframe#game').contents().find("body").addClass("fadebg");
+
   // Clear the global variables
   level = 0;
   persona = "";
 
-  // Fade out the current scene
-  $('iframe#game').contents().find("body").addClass("fadebg");
   // Wait for BG fade to complete
   setTimeout(function() {
     // Switch the scene

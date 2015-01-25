@@ -358,6 +358,9 @@ a.profile span.bio {
 body.level1 {
   background: url('/static/images/plane-small.jpg') no-repeat bottom center;
 }
+body.level2 {
+  background: url('/static/images/jump-small.jpg') no-repeat bottom center;
+}
 .intro {
   width: 330px;
   height: 380px;
@@ -391,7 +394,7 @@ body.level1 {
   font-size: 16px;
 }
 button.run {
-  background: #395;
+  background: #696c6e;
   color: #fff;
   border: 0;
   text-transform: uppercase;
@@ -399,7 +402,7 @@ button.run {
   padding: 8px 16px;
   font-size: 12px;
   transition: all ease 0.5s;
-  border-bottom: 3px solid #3b3131;
+  border-bottom: 3px solid #444;
   outline: 0;
 }
 button.run:hover {
@@ -410,15 +413,22 @@ button.run:hover {
 .code {
   padding: 4px 10px;
   width: 722px;
-  background: #3b3131;
-  color: #ddd;
 }
 .code.frozen {
 
 }
 .code.playground {
-  background: #000;
+  background: #000 !important;
   color: #fff;
+}
+
+#playground {
+  padding: 20px 10px;
+}
+
+.code pre {
+  padding: 3px 0;
+  margin: 0;
 }
 
 /* Output */
