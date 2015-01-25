@@ -452,3 +452,12 @@ button.run:hover {
   padding: 10px 20px;
   font-weight: 700;
 }
+
+.stdout .success {
+  display: inline-block;
+  margin: 20px 0;
+  background: #5b6;
+  color: #fff;
+  padding: 10px 20px;
+  font-weight: 700;
+}

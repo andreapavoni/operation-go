@@ -321,7 +321,11 @@ function validateLevel() {
   encrypted_solution = CryptoJS.SHA3(solution);
   if(answer[level+"-"+persona] == encrypted_solution) {
     // right solution
-    nextLevel(level);
+    success = getSuccessMessage();
+    stdout.html(stdout.html() + "<span class='success'>" + success + "</span>");
+    setTimeout(function() {
+      nextLevel(level);
+    }, 1500);
   } else {
     // wrong solution - post a sorry message
     fail = getFailMessage();
@@ -365,6 +369,46 @@ function getFailMessage() {
   message[22] = "OK, now try writing some good code.";
   message[23] = "Yep, I mean nope. Sorry.";
   message[24] = "This is an in-and-out mission, please keep that in mind.";
+
+  return message[choice];
+}
+
+function getSuccessMessage() {
+  you = "Ma'am";
+  other_persona = "Jason";
+  if(persona == "jason") {
+    you = "Sir";
+    other_persona = "Dee";
+  }
+
+  choice = Math.floor(Math.random() * 25)
+
+  message = new Array();
+  message[0] = "Yes " + you + "!";
+  message[1] = "Is it just me, or does that code look amazing?";
+  message[2] = "Way to go!";
+  message[3] = "There's nothing better than perfection";
+  message[4] = "Well done!";
+  message[5] = "Pretty much perfect!";
+  message[6] = "I'm so glad we left " + other_persona + " at the agency.";
+  message[7] = "That's the way to do it.";
+  message[8] = "Epoch has no idea what he's in for.";
+  message[9] = "Ah, very good.";
+  message[10] = 'you := "awesome"';
+  message[11] = "Wonderful work.";
+  message[12] = "Yes!  I like that.";
+  message[13] = "A perfect solution!";
+  message[14] = "Let's keep on truckin'";
+  message[15] = "Staying alive is awesome.";
+  message[16] = "You continue to amaze me!";
+  message[17] = "Great job.";
+  message[18] = "It must be nice being right";
+  message[19] = "your_code > sweet_apple_pie";
+  message[20] = "Need something harder, eh?";
+  message[21] = "Impressive!";
+  message[22] = "You should be running the internet.";
+  message[23] = "Very good, Go Master.";
+  message[24] = "Go get'em!";
 
   return message[choice];
 }
