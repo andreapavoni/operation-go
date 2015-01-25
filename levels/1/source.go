@@ -14,6 +14,7 @@ package main
 
 import(
   "fmt"
+  "strconv"
 )
 
 func main() {
@@ -29,19 +30,21 @@ func main() {
   // Your code
 
 // UNEDITABLE OMIT
-  printGearTable(agents, total_agents)
+  gear_table := createGearTable(agents, total_agents)
+  fmt.Println(gear_table)
 }
 
-func printGearTable(agents []Agent, total_agents int) {
+func createGearTable(agents []Agent, total_agents int) string {
   if len(agents) != total_agents {
-    fmt.Println("ERROR: We can only go with", total_agents, "agents.")
-    return
+    return "ERROR: Wrong number of agents"
   }
-  fmt.Println("Operation Go: Agent Manifest")
-  fmt.Println("----------------------------")
+  gear_table := "Operation Go: Agent Manifest\n"
+  gear_table += "----------------------------"
   for num, agent := range agents {
-    fmt.Println(num+1, agent.name, "| Gear:", agent.equipment)
+    gear_table += "\n" + strconv.Itoa(num+1) + ". " + agent.name
+    gear_table += ", Gear: " + agent.equipment
   }
+  return gear_table
 }
 
 type Agent struct {

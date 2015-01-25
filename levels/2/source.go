@@ -1,7 +1,7 @@
-/**********************************************
- * Mission: Ready to Jump
- ***********************************************
- *
+// START OMIT
+/*************************
+ * Mission: Time to Jump *
+ *************************
  *
  *
  */
@@ -13,5 +13,13 @@ import(
 )
 
 func main() {
-  fmt.Println("TODO")
+
+// EDITABLE OMIT
+
+  // Your code
+
+// UNEDITABLE OMIT
+  fmt.Println("hi")
 }
+
+// END OMIT

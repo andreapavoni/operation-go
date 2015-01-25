@@ -1,6 +1,8 @@
-Mission: Ready to Jump
+Mission: Time to Jump
 
-* Ready to Jump
+* Time to Jump
 
-.play source.go
+.code source.go /START OMIT/,/EDITABLE OMIT/
+.play source.go /EDITABLE OMIT/,/UNEDITABLE OMIT/
+.code source.go /UNEDITABLE OMIT/,/END OMIT/
 .html script.html

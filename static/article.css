@@ -37,7 +37,7 @@ body.fadebg {
 }
 
 .container {
-  padding: 60px 30px 56px 30px;
+  padding: 60px 30px 0px 30px;
 }
 
 #content {
@@ -61,7 +61,7 @@ body.fadebg {
 }
 
 .hide {
-  display: none;
+  display: none !important;
 }
 
 .visible {
@@ -78,11 +78,18 @@ a {
 
 #navbar {
   width: 100%;
-  background: #000;
+  background: #1a1a1a;
   padding: 0;
   display: flex;
   justify-content: space-between;
   z-index: 100;
+  position: absolute;
+  top: -60px;
+  transition: top ease 1s;
+}
+
+#navbar.slidedown {
+  top:0;
 }
 
 #navbar h2 {
@@ -90,31 +97,87 @@ a {
   font-family: "Special Elite";
   display: inline-block;
   padding: 2px 20px;
+  font-weight: normal;
+}
+
+#navbar h2 span {
+  color: tan;
 }
 
 #player {
-  display: block;
-  background: #272727;
+  background: #000;
   display: flex;
   align-items: center;
   padding: 2px 20px;
   color: #fff;
-  z-index: 100;
   transition: all ease 0.2s;
+  position: relative;
 }
 
 #player:hover {
   background: #3af;
+  cursor: pointer;
 }
 
-#player span.avatar {
+#player span#avatar {
   margin-right: 10px;
 }
 
-#player span.alias {
+#avatar img {
+  position: relative;
+  top: 2px;
+}
+
+#player span#alias {
   font-size: 10px;
   text-transform: uppercase;
   font-weight: 700;
+}
+
+#player #subnav {
+  position: absolute;
+  right: 0;
+  top: -100px;
+  transition: all ease 0.5s;
+  z-index: -10;
+}
+
+#player:hover #subnav {
+  top: 39px;
+}
+
+#subnav ul {
+  margin: 0;
+  padding: 0;
+}
+
+#subnav li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+#subnav li a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0;
+  padding: 15px 20px;
+  display: inline-block;
+  text-align: right;
+  background: #29e;
+  min-width: 64px;
+  border-bottom: 1px dotted #29e;
+}
+
+#subnav li:last-child a {
+  border-bottom: none;
+}
+
+#subnav li a:hover {
+  background: #333;
 }
 
 /*
@@ -125,6 +188,18 @@ a {
 
 body.opening {
   background: url('/static/images/jump-small-blue.jpg') no-repeat bottom center;
+}
+
+body.opening #page {
+  align-items: center;
+}
+
+body.opening .container {
+  padding-bottom: 60px;
+}
+
+body.opening div#player {
+  display: none;
 }
 
 h1.title {
@@ -149,28 +224,52 @@ h1.title {
   text-shadow: 3px 3px 5px #000;
   text-transform: uppercase;
   opacity: 0.75;
+  transition: all ease 1s;
 }
 
-h1:first-child {
+h1.title.big {
   color: #fff;
   text-decoration: none;
-  font-size: 85px;
+  font-size: 75px;
   text-transform: none;
   opacity: 1;
-  margin-top: 220px;
+  margin-top: 80px;
+}
+
+h1.title.disappear {
+  opacity: 0;
 }
 
 #oauth {
   margin-top: 80px;
   width: 100%;
   text-align: center;
+  opacity: 1;
+  transition: all ease 1s;
+}
+
+#oauth.disappear {
+  opacity: 0;
 }
 
 #profiles {
   height: 350px;
   width: 100%;
-  margin: 70px 0px;
-  text-align: center;
+  position: relative;
+  top: 40px;
+  transition: all ease 2s;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+}
+
+body.from-intro #profiles {
+  margin-top: 400px;
+}
+
+#profiles.slideup {
+  top: 0;
+  opacity: 1;
 }
 
 a.profile {
@@ -250,7 +349,7 @@ a.profile span.bio {
   background: url('/static/images/laptop-small.png') no-repeat;
   position: relative;
   top: 30px;
-  transition: all ease 1.5s;
+  transition: top ease 1.5s;
   padding: 90px 140px 60px 70px;
 }
 #laptop.movehigher {
@@ -278,8 +377,8 @@ body.level1 {
 
 /* Editor */
 #editor {
-  max-height: 432px;
-  overflow-y: scroll;
+  height: 432px;
+  overflow-y: auto;
   width: 757px;
 }
 #editor .buttons {
@@ -333,4 +432,13 @@ button.run:hover {
   white-space: -pre-wrap;      /* Opera 4-6 */
   white-space: -o-pre-wrap;    /* Opera 7 */
   word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+.stdout .fail {
+  display: inline-block;
+  margin: 20px 0;
+  background: #f45;
+  color: #fff;
+  padding: 10px 20px;
+  font-weight: 700;
 }

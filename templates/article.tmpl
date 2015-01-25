@@ -3,20 +3,27 @@
 <html>
 <head>
   <title>{{.Title}}</title>
-  <link href='http://fonts.googleapis.com/css?family=Inconsolata|Raleway:200,400,700|Special+Elite' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Inconsolata|Raleway:200,400,500,700|Special+Elite' rel='stylesheet' type='text/css'>
   <link type="text/css" rel="stylesheet" href="/static/article.css">
   <meta charset='utf-8'>
 </head>
 
 <body class="fadebg">
-  <section id="navbar" class="hide">
+  <section id="navbar" class="slidedown hide">
     <h2>Operation Go</h2>
-    <a id="player" href="/" onclick="return false;"></a>
+    <div id="player">
+      <span id="avatar"></span>
+      <span id="alias"></span>
+      <ul id="subnav">
+        <li><a href="/" onclick="return false;" id="restart">Restart &rarr;</a></li>
+        <li><a href="http://gopher-gala.challengepost.com/submissions" target="_blank">About &rarr;</a></li>
+      </ul>
+    </div>
   </section>
   <div id="page">
     <div class="container">
       <div id="content">
-        <section id="laptop">
+        <section id="laptop" class="hide">
           <div id="editor">
             {{range .Sections}}
               {{elem $.Template .}}
