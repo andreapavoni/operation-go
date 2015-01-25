@@ -11,7 +11,6 @@ $(document).ready(function() {
 
   // If the user hasn't started playing
   $('iframe#game').load(function(){
-
     if (level == "") {
       navbar = $('iframe#game').contents().find('section#navbar');
       navbar.addClass('hide');
@@ -73,6 +72,7 @@ function loadCookieData() {
 
   // Load the cookie data into the global vars
   user = user.replace("user=","");
+  user = user.replace(";path='/'","");
   user_data = user.split("|");
   alias = user_data[0];
   if (user_data.length > 1) {
@@ -102,7 +102,7 @@ function githubLogin() {
       avatar = response.avatar;
       email = response.email;
       // set the cookie
-      document.cookie="user=" + alias + "|" + avatar + "|" + email;
+      document.cookie="user=" + alias + "|" + avatar + "|" + email + ";path='/'";
       // show the opening scene
       openingScene();
     })
@@ -218,14 +218,19 @@ function setupNavBar() {
 function nextLevel(step) {
   level = parseInt(step) + 1;
   cookie_data = document.cookie;
-  document.cookie = cookie_data.slice(0,cookie_data.length - step.length) + level;
+  deleteCookie();
+  cookie_data = cookie_data.replace(";path='/'","");
+  document.cookie = cookie_data.slice(0,cookie_data.length - step.toString().length) + level;
+
   loadLevel(level);
 }
 
 // capture the user's persona selection
 function createPersona(selected) {
   persona = $(selected).attr('id');
-  document.cookie = document.cookie + "|" + persona + "|1";
+  cookie_data = document.cookie;
+  cookie_data = cookie_data.replace(";path='/'","")
+  document.cookie = cookie_data + "|" + persona + "|1;path='/'";
   $('iframe#game').contents().find('div#profiles').removeClass('slideup');
   setTimeout(function() {
     level = 1;
@@ -350,7 +355,9 @@ function capitalize(string)
 
 function restartGame() {
   // Reset the user's cookie
-  document.cookie="user=" + alias + "|" + avatar + "|" + email;
+  data = "user=" + alias + "|" + avatar + "|" + email;
+  deleteCookie();
+  document.cookie="user=" + alias + "|" + avatar + "|" + email + ";path='/'";
   // Clear the global variables
   level = 0;
   persona = "";
@@ -362,4 +369,8 @@ function restartGame() {
     // Switch the scene
     $('iframe#game').attr("src", "/opening.article");
   }, 500);
+}
+
+function deleteCookie() {
+  document.cookie = document.cookie + "; expires=Thu, 01 Jan 1970 00:00:01 GMT;path='/'";
 }
