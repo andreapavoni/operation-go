@@ -24,7 +24,7 @@ body {
 
 body.fadebg {
   opacity: 0;
-  background: url('http://dummyimage.com/1500x997/000/000.jpg') no-repeat bottom center;
+  background: url('/static/images/blank.jpg') no-repeat bottom center;
 }
 
 #page {
@@ -359,7 +359,10 @@ body.level1 {
   background: url('/static/images/plane-small.jpg') no-repeat bottom center;
 }
 body.level2 {
-  background: url('/static/images/jump-small.jpg') no-repeat bottom center;
+  background: url('/static/images/island2-small.jpg') no-repeat center center;
+}
+body.level3 {
+  background: url('/static/images/jungle-small.jpg') no-repeat top center;
 }
 .intro {
   width: 330px;

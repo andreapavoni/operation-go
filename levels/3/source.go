@@ -1,7 +1,8 @@
 // START OMIT
-/*************************
- * Mission: Time to Jump *
- *************************
+/***********************
+ * Mission: Where Am I *
+ ***********************
+ *
  *
  *
  */
@@ -18,8 +19,8 @@ func main() {
 
   // Your code
 
-// UNEDITABLE OMIT
-  fmt.Println("hi")
-}
+  fmt.Println("todo")
 
+// UNEDITABLE OMIT
+}
 // END OMIT
