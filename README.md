@@ -1,5 +1,13 @@
 # Operation Go: A Routine Mission
 
+## Project Overview
+**About the App:**
+
+Operation Go tells the story of a young covert operative on their first mission into the field.  The operative encounters multiple obstacles along the way that must be solved using Golang.
+
+The entire app is rendered using Go's `present` tool.
+
+**How To Play:**
 Clone the repo:
 
 `git clone https://github.com/gophergala/operation-go.git`
@@ -15,13 +23,6 @@ cd into project directory
 Visit `http://127.0.0.1:3999` in your browser
 
 Enjoy :)
-
-## Project Overview
-**About the App:**
-
-Operation Go tells the story of a young covert operative on their first mission into the field.  The operative encounters multiple obstacles along the way that must be solved using Golang.
-
-The entire app is rendered using Go's `present` tool.
 
 **Who's It For?:** Go developers of all experience levels
 
