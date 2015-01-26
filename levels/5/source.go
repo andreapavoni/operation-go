@@ -1,11 +1,9 @@
 // START OMIT
-/***************************
- * Mission: Being Recorded *
- ***************************
+/**************************
+ * Mission: Into the Open *
+ **************************
  *
- * Well, good news and bad news.  The bad news is it looks like
- * you've already been spotted.  The good news is you should
- * be able to shut turns these cameras back to idle.
+ *
  *
  */
 
