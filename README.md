@@ -1,9 +1,18 @@
 # Operation Go: A Routine Mission
 
-Clone the repo, then from the project directory run:
+Clone the repo:
+
+`git clone https://github.com/gophergala/operation-go.git`
+
+Download Go's present tool:
+
+`go get code.google.com/p/go.tools/cmd/present`
+
+cd into project directory
+
 `present -base=.`
 
-and open your browser to: `http://127.0.0.1:3999/`
+Visit `http://127.0.0.1:3999` in your browser
 
 Enjoy :)
 
