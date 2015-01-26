@@ -2,6 +2,7 @@
 
 Clone the repo, then from the project directory run:
 `present -base=.`
+
 and open your browser to: `http://127.0.0.1:3999/`
 
 Enjoy :)
