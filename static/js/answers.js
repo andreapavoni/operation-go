@@ -7,7 +7,11 @@ answer['3-jason']='0eff1adad0434304d7cfc3905f1f7fae2c246fa1f247d2a0557c50844dc47
 answer['3-dee']='0eff1adad0434304d7cfc3905f1f7fae2c246fa1f247d2a0557c50844dc47c828421cacebc9023cff0dbda18d66553fb9f6c8326397b3b2393cfbc4e38772f3c';
 answer['4-jason']='af6c848d6feef01d1066de6bef4a45a0a023b4b159115d68c9fdebf09603fed618b85d30efe1e2fb4fd273ff5e2ff8161cc7b68773e0660f0d887c24441cf302';
 answer['4-dee']='af6c848d6feef01d1066de6bef4a45a0a023b4b159115d68c9fdebf09603fed618b85d30efe1e2fb4fd273ff5e2ff8161cc7b68773e0660f0d887c24441cf302';
+answer['5-jason']='c3ca196b6c2ab40e2e00e80f37b9d61cebfc7a2edcaab94819396898efca0f09e6838390482ce072eaaee0eefee869f272106232f1ec8660114a48b887b8bc3d';
+answer['5-dee']='c3ca196b6c2ab40e2e00e80f37b9d61cebfc7a2edcaab94819396898efca0f09e6838390482ce072eaaee0eefee869f272106232f1ec8660114a48b887b8bc3d';
+answer['6-jason']='';
+answer['6-dee']='';
 
 // To encrypt
-//console.log("answer['5-jason']='" + CryptoJS.SHA3("") + "';")
-//console.log("answer['5-dee']='" + CryptoJS.SHA3("") + "';")
+console.log("answer['6-jason']='" + CryptoJS.SHA3("") + "';")
+console.log("answer['6-dee']='" + CryptoJS.SHA3("") + "';")

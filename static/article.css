@@ -370,6 +370,9 @@ body.level4 {
 body.level5 {
   background: url('/static/images/compound-small.jpg') no-repeat center center;
 }
+body.level5 {
+  background: url('/static/images/compound-small.jpg') no-repeat center center;
+}
 .intro {
   width: 330px;
   height: 380px;

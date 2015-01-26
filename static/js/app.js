@@ -13,7 +13,7 @@ $(document).ready(function() {
   tune = document.getElementById('music');
   tune.volume = 0.2;
 
-  //toggleMusic();
+  toggleMusic();
 
   //document.getElementById('music').volume = 0;
 
