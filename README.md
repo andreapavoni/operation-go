@@ -8,6 +8,7 @@ Operation Go tells the story of a young covert operative on their first mission 
 The entire app is rendered using Go's `present` tool.
 
 **How To Play:**
+
 Clone the repo:
 
 `git clone https://github.com/gophergala/operation-go.git`
